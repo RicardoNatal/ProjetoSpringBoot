@@ -1,23 +1,27 @@
 package br.com.godev.projeto.book;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
 @Entity
 @Table
 public class Book {
-	
+
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false)
+	@ApiModelProperty(value = "Book title")
+	@Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+	@ApiModelProperty(value = "Author name")
+	@Column(nullable = false)
     private String nameAuthor;
 
 	public Book() {
-	
+
 	}
 
 	public Book(String title, String nameAuthor) {
@@ -28,7 +32,7 @@ public class Book {
 	public long getId() {
 		return id;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}

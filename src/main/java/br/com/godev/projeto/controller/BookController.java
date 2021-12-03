@@ -36,6 +36,7 @@ public class BookController {
     private BookMapper bookMapper;
 
     @PostMapping
+    @RequestMapping(produces="application/json", consumes="application/json")
     public ResponseEntity<BookNewDTO> addBook(@RequestBody BookNewDTO bookDTO) {
         final Book bookEntity = bookMapper.toEntity(bookDTO);
         final Book bookSaved = bookRepository.save(bookEntity);
